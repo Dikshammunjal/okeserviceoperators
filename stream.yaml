@@ -1,0 +1,10 @@
+apiVersion: oci.oracle.com/v1beta1
+kind: Stream
+metadata:
+  name: sample-stream
+spec:
+  compartmentId: ocid1.compartment.oc1..aaaaaaaay63waqyifnw6ohhgwhoew27twe3jhnjby6cq6mrfc3ysjoa3w6wa
+  name: SampleStream
+  partitions: 1
+  retentionInHours: 24
+  # Id: ocid1.stream.oc1.<region_code>.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet 
+metadata:
+  name: node
+spec:
+  replicas: 1 
+  serviceName: node
+  selector:
+    matchLabels:
+      app: node
+  template:
+    metadata:
+      labels:
+        app: node
+    spec: 
+     containers:
+     - image: mysql/mysql-server:latest
+       name: mysql
+       env:
+         - name: ADMIN_PASSWORD
+           valueFrom:
+             secretKeyRef:
+               name: admin-secret
+               key: password
+         - name: ADMIN_USERNAME
+           valueFrom:
+             secretKeyRef:
+               name: admin-secret
+               key: username
+         - name: MYSQLDBSYSTEM_IP
+           valueFrom:
+             secretKeyRef:
+               name: mysqldbsystem-sample
+               key: PrivateIPAddress
+         - name: PORT
+           valueFrom:
+             secretKeyRef:
+               name: mysqldbsystem-sample
+               key: MySQLPort
+
+

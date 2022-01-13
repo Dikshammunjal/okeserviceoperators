@@ -1,0 +1,29 @@
+apiVersion: oci.oracle.com/v1beta1
+kind: AutonomousDatabases
+metadata:
+  name: autonomousdatabases-sample
+spec:
+  compartmentId: ocid1.compartment.oc1..aaaaaaaay63waqyifnw6ohhgwhoew27twe3jhnjby6cq6mrfc3ysjoa3w6wa
+  displayName: SampleADB
+  dbName: sampleadb
+  dbWorkload: OLTP
+  isDedicated: false
+  dbVersion: 19c
+  dataStorageSizeInTBs: 2
+  cpuCoreCount: 1
+  adminPassword:
+    secret:
+      secretName: admin
+  isAutoScalingEnabled: true
+  isFreeTier: false
+  licenseModel: BRING_YOUR_OWN_LICENSE
+  wallet:
+    walletName: sampleadb-wallet
+    walletPassword:
+      secret:
+        secretName: wallet
+  freeformTags:
+    key1: value1
+ # definedTags:
+ #  #   test:
+ #   #     key1: value1
